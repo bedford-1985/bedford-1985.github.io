@@ -78,7 +78,7 @@ a.qref:hover{border-bottom-color:var(--p-s);}
 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;">
 <div>
 <h1>Fall Jens Söring – Ermittlerboard</h1>
-<p class="sub">Haysom-Morde, Bedford County (Virginia), 30. März 1985 · Stand: Juli 2026 · <span style="opacity:.6">v0.1.12</span></p>
+<p class="sub">Haysom-Morde, Bedford County (Virginia), 30. März 1985 · Stand: Juli 2026 · <span style="opacity:.6">v0.1.13</span></p>
 </div>
 <div style="display:flex;gap:8px;align-items:center;">
 <button id="themebtn" aria-label="Farbschema umschalten">Dunkles Design</button>
@@ -401,7 +401,8 @@ var h='<p style="margin:0;font-size:16px;font-weight:500;">'+n.l.join(' ')+' <sp
 h+='<p style="margin:2px 0 8px;font-size:13px;color:var(--text-secondary);">'+n.role+'</p>';
 h+='<p style="margin:0 0 10px;font-size:14px;line-height:1.6;">'+n.d+'</p>';
 if(rel.length){h+='<p style="margin:0 0 6px;font-size:12px;color:var(--text-muted);">Verbindungen</p><div style="display:flex;flex-wrap:wrap;gap:6px;">';rel.forEach(function(r){var o=byId[r[0]];h+='<button style="font-size:12px;padding:4px 10px;" data-sel="'+r[0]+'">'+o.l.join(' ')+' · '+r[1]+'</button>';});h+='</div>';}
-var p=document.getElementById('panel');p.innerHTML=h;p.querySelectorAll('[data-sel]').forEach(function(b){b.addEventListener('click',function(){select(b.getAttribute('data-sel'));});});}
+if(typeof personDocs!=='undefined'&&personDocs[id]&&personDocs[id].length){h+='<p style="margin:10px 0 6px;font-size:12px;color:var(--text-muted);">Dokumente &amp; Quellen</p><div style="display:flex;flex-wrap:wrap;gap:6px;">';personDocs[id].forEach(function(qd){h+='<button style="font-size:12px;padding:4px 10px;" data-doc="'+qd+'">'+(qTitles[qd]||qd)+'</button>';});h+='</div>';}
+var p=document.getElementById('panel');p.innerHTML=h;p.querySelectorAll('[data-sel]').forEach(function(b){b.addEventListener('click',function(){select(b.getAttribute('data-sel'));});});p.querySelectorAll('[data-doc]').forEach(function(b){b.addEventListener('click',function(){goQuelle(b.getAttribute('data-doc'));});});}
 document.querySelectorAll('[data-f]').forEach(function(b){b.addEventListener('click',function(){var f=b.getAttribute('data-f');reset();if(f==='all'){select(curSel);return;}
 N.forEach(function(m){m.g.setAttribute('opacity',m.c===f?'1':'0.18');});E.forEach(function(e){e[3].setAttribute('opacity','0.08');});
 var names=N.filter(function(m){return m.c===f;}).map(function(m){return m.l.join(' ');});
@@ -494,7 +495,11 @@ var qPersons={
 'q-system-podcast':['brauner','behre'],
 'q-stbc-podcast':['stbc']
 };
-Object.keys(qPersons).forEach(function(qid){var row=document.getElementById(qid);if(!row)return;var cell=row.querySelector('td');if(!cell)return;var ch=document.createElement('div');ch.className='q-chips';var any=false;qPersons[qid].forEach(function(pid){var n=byId[pid];if(!n)return;any=true;var b=document.createElement('button');b.type='button';b.textContent=n.l.join(' ');b.title='Im Beziehungsnetz zeigen';b.addEventListener('click',function(){showView('board');select(pid);var p=document.getElementById('panel');if(p)p.scrollIntoView({behavior:'smooth',block:'center'});});ch.appendChild(b);});if(any)cell.appendChild(ch);});
+var personDocs={},qTitles={};
+Object.keys(qPersons).forEach(function(qid){var row=document.getElementById(qid);if(!row)return;var cell=row.querySelector('td');if(!cell)return;
+var cl=cell.cloneNode(true);Array.prototype.forEach.call(cl.querySelectorAll('.desc'),function(el){el.parentNode.removeChild(el);});qTitles[qid]=cl.textContent.trim();
+qPersons[qid].forEach(function(pid){if(byId[pid]){(personDocs[pid]=personDocs[pid]||[]).push(qid);}});
+var ch=document.createElement('div');ch.className='q-chips';var any=false;qPersons[qid].forEach(function(pid){var n=byId[pid];if(!n)return;any=true;var b=document.createElement('button');b.type='button';b.textContent=n.l.join(' ');b.title='Im Beziehungsnetz zeigen';b.addEventListener('click',function(){showView('board');select(pid);var p=document.getElementById('panel');if(p)p.scrollIntoView({behavior:'smooth',block:'center'});});ch.appendChild(b);});if(any)cell.appendChild(ch);});
 if(location.hash==='#quellen'){showView('quellen');}else if(location.hash.indexOf('#q-')===0){goQuelle(location.hash.slice(1));}
 </script>
 </body>
