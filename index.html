@@ -72,13 +72,40 @@ a.qref:hover{border-bottom-color:var(--p-s);}
 .tl-chips button{font-size:11px;padding:2px 9px;}
 .q-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px;}
 .q-chips button{font-size:11px;padding:2px 9px;}
+/* v0.1.16: Abschnitt „Orte & Wege — das Wochenende der Tat" (Karte + Zeitband + Haltepunkte) */
+.owhint{font-size:11.5px;color:var(--text-muted);margin:0 0 8px;}
+.grid4{display:grid;grid-template-columns:1fr 1.7fr 1fr 1fr;gap:10px;margin-top:12px;}
+.vbox{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+@media (max-width:700px){.grid4,.vbox{grid-template-columns:1fr;}}
+.day{border-top:3px solid var(--border-strong);padding-top:6px;}
+.day.acc{border-top-color:var(--p-s);}
+.day h3{font-size:11.5px;font-weight:600;margin:0 0 2px;}
+.day p{font-size:10.5px;color:var(--text-secondary);line-height:1.55;margin:0 0 4px;}
+.day p.f1{color:var(--c-t);}
+.day p.f2{color:var(--t-t);}
+.day p.dur{font-style:italic;color:var(--text-secondary);font-size:10px;}
+.vbox>div{border:0.5px solid var(--border);border-radius:8px;padding:9px 11px;background:var(--surface-2);}
+.vbox .h{font-size:11px;font-weight:600;margin:0 0 4px;}
+.vbox .b{font-size:11px;color:var(--text-secondary);line-height:1.55;}
+.vbox .v1 .h{color:var(--c-t);}
+.vbox .v2 .h{color:var(--t-t);}
+table.hp{width:100%;border-collapse:collapse;font-size:11.5px;}
+.hp th{text-align:left;font-weight:500;font-size:10.5px;color:var(--text-muted);padding:2px 8px 6px 0;border-bottom:1px solid var(--border-strong);}
+.hp td{vertical-align:top;padding:6px 8px 6px 0;border-bottom:0.5px solid var(--border);line-height:1.5;}
+.hp tr:last-child td{border-bottom:none;}
+.hp td.n{color:var(--c-s);font-weight:600;width:24px;}
+.hp td.o{width:160px;}
+.hp td.z{width:135px;}
+.hp .q{color:var(--text-muted);}
+.hp .warn{color:var(--c-s);}
+.owfoot{font-size:11px;color:var(--text-muted);margin-top:12px;line-height:1.55;}
 </style>
 </head>
 <body>
 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;">
 <div>
 <h1>Fall Jens Söring – Ermittlerboard</h1>
-<p class="sub">Haysom-Morde, Bedford County (Virginia), 30. März 1985 · Stand: Juli 2026 · <span style="opacity:.6">v0.1.15</span></p>
+<p class="sub">Haysom-Morde, Bedford County (Virginia), 30. März 1985 · Stand: Juli 2026 · <span style="opacity:.6">v0.1.16</span></p>
 </div>
 <div style="display:flex;gap:8px;align-items:center;">
 <button id="themebtn" aria-label="Farbschema umschalten">Dunkles Design</button>
@@ -134,6 +161,117 @@ a.qref:hover{border-bottom-color:var(--p-s);}
 <h2 style="font-size:18px;font-weight:500;margin:28px 0 4px;">Zeitstrahl 1984–2026 <span class="tag tag-static">Nachschlag · nicht editierbar</span></h2>
 <p style="font-size:12px;color:var(--text-muted);margin:0 0 14px;">Punktfarbe wie im Netzwerk: rötlich = belastet Söring, grünlich = entlastet ihn, grau = neutraler Verfahrensschritt. Klick auf einen Namen springt zur Person.</p>
 <div class="card"><ul class="tl" id="timeline"></ul></div>
+<h2 style="font-size:18px;font-weight:500;margin:28px 0 4px;">Orte &amp; Wege — das Wochenende der Tat <span class="tag tag-static">Nachschlag · nicht editierbar</span></h2>
+<p style="font-size:12px;color:var(--text-muted);margin:0 0 14px;">Fr. 29. – So. 31. März 1985. Linienfarbe wie im Netzwerk: rötlich = Fassung der Geständnisse 1986 (1990 widerrufen) und der Anklage, grünlich = Sörings Fassung seit 1990, violett = unstrittig gemeinsame Wege. Beide Fassungen sind mit Zuschreibung dargestellt; welche zutrifft, ist der Kern des Streits.</p>
+<div class="card">
+<p class="owhint">Fettangaben = Uhrzeit lt. Aussage · <i>kursiv = Fahrtdauer</i> · dick → dünn = früher → später · gestrichelt = nachts</p>
+<svg viewBox="0 0 920 520" width="100%" role="img" aria-label="Karte des Tatwochenendes mit Fahrten zwischen Charlottesville, Washington D.C. und Loose Chippings">
+<title>Orte und Wege des Tatwochenendes 29.–31. März 1985</title>
+<defs>
+<marker id="arP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="var(--p-s)"/></marker>
+<marker id="arC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="var(--c-s)"/></marker>
+<marker id="arT" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="var(--t-s)"/></marker>
+<marker id="arG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="var(--text-muted)"/></marker>
+</defs>
+<path d="M424,282 Q512,254 562,224" fill="none" stroke="var(--p-s)" stroke-width="4" stroke-linecap="round"/>
+<path d="M562,224 Q642,178 700,140" fill="none" stroke="var(--p-s)" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arP)"/>
+<path d="M692,148 Q568,228 452,272" fill="none" stroke="var(--c-s)" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M452,272 Q330,316 212,360" fill="none" stroke="var(--c-s)" stroke-width="2" stroke-linecap="round" marker-end="url(#arC)"/>
+<path d="M696,158 Q574,240 458,284" fill="none" stroke="var(--t-s)" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M458,284 Q338,328 220,371" fill="none" stroke="var(--t-s)" stroke-width="2" stroke-linecap="round" marker-end="url(#arT)"/>
+<path d="M216,384 Q392,426 490,350" fill="none" stroke="var(--c-s)" stroke-width="1.9" stroke-dasharray="6 4" stroke-linecap="round"/>
+<path d="M490,350 Q616,256 700,170" fill="none" stroke="var(--c-s)" stroke-width="1.2" stroke-dasharray="4 4" stroke-linecap="round" marker-end="url(#arC)"/>
+<path d="M224,394 Q398,438 498,360" fill="none" stroke="var(--t-s)" stroke-width="1.9" stroke-dasharray="6 4" stroke-linecap="round"/>
+<path d="M498,360 Q622,266 704,180" fill="none" stroke="var(--t-s)" stroke-width="1.2" stroke-dasharray="4 4" stroke-linecap="round" marker-end="url(#arT)"/>
+<path d="M202,382 Q228,400 246,408" fill="none" stroke="var(--c-s)" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#arC)"/>
+<path d="M706,150 Q646,220 584,250" fill="none" stroke="var(--p-s)" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round"/>
+<path d="M584,250 Q498,286 430,295" fill="none" stroke="var(--p-s)" stroke-width="1" stroke-dasharray="3 4" stroke-linecap="round" marker-end="url(#arP)"/>
+<circle cx="710" cy="131" r="8" fill="var(--g-f)" stroke="var(--g-s)" stroke-width="2.2"/>
+<circle cx="666" cy="196" r="5" fill="var(--g-f)" stroke="var(--g-s)" stroke-width="1.6"/>
+<circle cx="410" cy="290" r="7" fill="var(--g-f)" stroke="var(--g-s)" stroke-width="2"/>
+<circle cx="195" cy="373" r="8" fill="var(--g-f)" stroke="var(--g-s)" stroke-width="2.2"/>
+<circle cx="252" cy="411" r="4.5" fill="var(--g-f)" stroke="var(--c-s)" stroke-width="1.5"/>
+<circle cx="318" cy="445" r="5" fill="var(--g-f)" stroke="var(--text-muted)" stroke-width="1.5"/>
+<line x1="716" y1="122" x2="738" y2="92" stroke="var(--text-primary)" stroke-width="0.7" opacity="0.6"/>
+<text x="742" y="88" font-size="12" font-weight="600" fill="var(--text-primary)">Washington, D.C.</text>
+<text x="742" y="100" font-size="9.5" fill="var(--text-secondary)">Marriott, 22nd St.</text>
+<line x1="672" y1="199" x2="748" y2="228" stroke="var(--text-primary)" stroke-width="0.7" opacity="0.6"/>
+<text x="752" y="232" font-size="10.5" fill="var(--text-primary)">Kinos Georgetown</text>
+<text x="752" y="244" font-size="9" fill="var(--text-muted)">„Witness" &amp; „Rocky Horror"</text>
+<line x1="404" y1="284" x2="332" y2="250" stroke="var(--text-primary)" stroke-width="0.7" opacity="0.6"/>
+<text x="230" y="246" font-size="12" fill="var(--text-primary)">Charlottesville</text>
+<text x="230" y="258" font-size="9" fill="var(--text-muted)">UVA · Mietwagen-Station</text>
+<line x1="187" y1="369" x2="120" y2="336" stroke="var(--text-primary)" stroke-width="0.7" opacity="0.6"/>
+<text x="34" y="320" font-size="12" font-weight="600" fill="var(--text-primary)">„Loose Chippings"</text>
+<text x="34" y="332" font-size="9.5" fill="var(--text-secondary)">Haus der Haysoms, Boonsboro — Tatort</text>
+<line x1="252" y1="416" x2="176" y2="470" stroke="var(--text-primary)" stroke-width="0.7" opacity="0.6"/>
+<text x="40" y="482" font-size="9.5" fill="var(--text-secondary)">Müllcontainer an der US-501 (nur in Fassung 1: Skizze im Geständnis)</text>
+<text x="330" y="449" font-size="9.5" fill="var(--text-muted)">Lynchburg</text>
+<line x1="530" y1="243" x2="502" y2="196" stroke="var(--text-primary)" stroke-width="0.7" opacity="0.6"/>
+<text x="440" y="190" font-size="10.5" fill="var(--p-s)" font-weight="600">① Fr. — gemeinsame Anreise</text>
+<line x1="560" y1="266" x2="600" y2="300" stroke="var(--text-primary)" stroke-width="0.7" opacity="0.6"/>
+<text x="604" y="312" font-size="10.5" fill="var(--p-s)" font-weight="600">④ So. — gemeinsame Rückfahrt</text>
+<line x1="452" y1="278" x2="420" y2="330" stroke="var(--text-primary)" stroke-width="0.7" opacity="0.6"/>
+<text x="332" y="343" font-size="10.5" font-weight="600" fill="var(--text-primary)">② Sa. nachmittag — Hinfahrt</text>
+<text x="332" y="355" font-size="9.5" fill="var(--text-secondary)" font-style="italic">~3½ Std. je Richtung</text>
+<line x1="430" y1="424" x2="430" y2="464" stroke="var(--text-primary)" stroke-width="0.7" opacity="0.6"/>
+<text x="342" y="477" font-size="10.5" font-weight="600" fill="var(--text-primary)">③ Sa. nacht — Rückfahrt</text>
+<rect x="612" y="196" width="26" height="14" rx="7" fill="var(--c-f)" stroke="var(--c-s)" stroke-width="1"/><text x="618" y="206" font-size="9" fill="var(--c-t)" font-weight="600">F1</text>
+<line x1="625" y1="196" x2="618" y2="185" stroke="var(--text-primary)" stroke-width="0.6" opacity="0.6"/>
+<rect x="594" y="228" width="26" height="14" rx="7" fill="var(--t-f)" stroke="var(--t-s)" stroke-width="1"/><text x="600" y="238" font-size="9" fill="var(--t-t)" font-weight="600">F2</text>
+<line x1="607" y1="228" x2="614" y2="216" stroke="var(--text-primary)" stroke-width="0.6" opacity="0.6"/>
+<path d="M762,66 Q820,48 880,40" fill="none" stroke="var(--text-muted)" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#arG)"/>
+<text x="770" y="28" font-size="9.5" fill="var(--text-muted)">Okt. 1985 Flucht → Europa/London</text>
+<path d="M880,150 Q830,140 768,124" fill="none" stroke="var(--text-muted)" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#arG)"/>
+<text x="792" y="166" font-size="9.5" fill="var(--text-muted)">← Jan. 1990 Auslieferung</text>
+<path d="M756,180 Q818,196 880,204" fill="none" stroke="var(--text-muted)" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#arG)"/>
+<text x="806" y="222" font-size="9.5" fill="var(--text-muted)">Dez. 2019 → Frankfurt</text>
+<g transform="translate(28,44)">
+<rect x="-12" y="-16" width="258" height="122" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+<line x1="0" y1="0" x2="34" y2="0" stroke="var(--p-s)" stroke-width="3.5"/><text x="42" y="4" font-size="9.5" fill="var(--text-primary)">gemeinsam (unstrittig)</text>
+<line x1="0" y1="18" x2="34" y2="18" stroke="var(--c-s)" stroke-width="3.5"/><text x="42" y="22" font-size="9.5" fill="var(--text-primary)">Fassung 1 — Geständnisse '86 (widerrufen) · E. Haysom</text>
+<line x1="0" y1="36" x2="34" y2="36" stroke="var(--t-s)" stroke-width="3.5"/><text x="42" y="40" font-size="9.5" fill="var(--text-primary)">Fassung 2 — Sörings Aussage seit 1990</text>
+<path d="M0,56 L34,56" stroke="var(--g-s)" stroke-width="4"/><path d="M34,56 L52,56" stroke="var(--g-s)" stroke-width="1"/><text x="60" y="60" font-size="9.5" fill="var(--text-primary)">dick → dünn = Zeitverlauf</text>
+<line x1="0" y1="74" x2="52" y2="74" stroke="var(--g-s)" stroke-width="1.6" stroke-dasharray="5 4"/><text x="60" y="78" font-size="9.5" fill="var(--text-primary)">gestrichelt = nachts</text>
+<text x="0" y="96" font-size="9.5" fill="var(--text-secondary)" font-style="italic">kursiv</text><text x="60" y="96" font-size="9.5" fill="var(--text-primary)">= Fahrtdauer</text>
+</g>
+</svg>
+<div class="vbox">
+<div class="v1"><p class="h" style="margin:0 0 4px;">Fassung 1 — Geständnisse Juni/Dez. 1986 (1990 widerrufen) · ebenso E. Haysoms Prozessaussage</p>
+<p class="b" style="margin:0;">Söring fährt allein. Abfahrt „zwischen eins und zwei" mittags (E. Haysom, Prozess 1990) · Fahrtzeit „3½ Stunden" (Söring, Bonn 30.12.86) · abends Tat · Rückkehr: Treffen vor dem Kino in Georgetown, „nach Ende der Rocky Horror … vielleicht eins?" (Söring, Protokoll 8.6.86). Elizabeth bleibt in D.C., kauft je zwei Kinokarten.</p></div>
+<div class="v2"><p class="h" style="margin:0 0 4px;">Fassung 2 — Sörings Aussage seit dem Prozess 1990</p>
+<p class="b" style="margin:0;">Elizabeth fährt; er bleibt in Georgetown. Spätes Aufstehen, Mahlzeit „gegen halb vier, vier" · er sieht „Witness" und „Rocky Horror", geht beunruhigt ins Hotel zurück, „es war gegen zwei" — Elizabeth kommt kurz danach (Söring, Prozess 1990).</p></div>
+</div>
+<div class="grid4">
+<div class="day acc"><h3>Fr. 29. März</h3><p>Mietwagen in Charlottesville (Kreditkarten-Beleg „3-29-85") · Fahrt nach D.C. (~120 mi) · Ankunft: <b>abends</b> (Söring '86) · Übernachtung Marriott, 22nd St. (Prozess '90)</p></div>
+<div class="day"><h3>Sa. 30. März — Tattag</h3>
+<p class="f1"><b>F1</b> · Abfahrt: <b>ca. 13–14 Uhr</b> (E. Haysom '90) → Tat: <b>abends, nach dem Abendessen</b> → Treffen Georgetown: <b>ca. 1 Uhr nachts</b> (Söring '86)</p>
+<p class="f2"><b>F2</b> · Abfahrt Elizabeth: <b>nach ca. 16 Uhr</b> → er im Kino → Hotel: <b>ca. 2 Uhr</b>, sie kommt kurz danach (Söring '90)</p>
+<p class="dur">Fahrtdauer D.C. ⇄ Bedford Co.: ~3½ Std. je Richtung (Söring, Bonn '86)</p></div>
+<div class="day acc"><h3>So. 31. März</h3><p>Gemeinsame Rückfahrt · Uhrzeit nicht überliefert · Wagen zurück in Charlottesville · Kilometerstand: <b>669 Meilen</b> (Mietvertrag; Anklage-Rechnung: ~120 + 75-mi-Segmente)</p></div>
+<div class="day"><h3>Mi. 3. April</h3><p>Leichenfund in Loose Chippings durch Annie Massie · Autopsien am 4.4.</p></div>
+</div>
+</div>
+<div class="card" style="margin-top:16px;">
+<h2 style="margin:0 0 4px;">Haltepunkte des Tattags — nach Fassung 1</h2>
+<p class="owhint">Ablauf laut der Geständnis-Fassung von 1986 — <b>1990 widerrufen</b>; die Gegen-Fassung 2 kennt für diesen Weg keine eigenen Haltepunkte, da Söring ihr zufolge in Georgetown blieb. <b>fett = Uhrzeit lt. Aussage</b> · <i>kursiv = rechnerisch hergeleitet</i> · „—" = nicht überliefert</p>
+<table class="hp">
+<thead><tr><th>#</th><th>Ort</th><th>Uhrzeit</th><th>Grund / Tätigkeit / Beschreibung</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="o">Washington D.C., Marriott (22nd St.)</td><td class="z">Sa. vormittag/mittag</td><td>Spätes Aufstehen; mittags nur ein Hamburger („nicht viel"). Absprache mit Elizabeth über deren Kinobesuche und Ticketkäufe — nach dem Verhörprotokoll auch über den Tatplan. <span class="q">[Bonn · London 6.6.]</span></td></tr>
+<tr><td class="n">2</td><td class="o">D.C., Absetzpunkt (Ort in Aussage nicht benannt)</td><td class="z"><b>ca. 13–14 Uhr</b> <span class="q">[E. Haysom '90]</span></td><td>Söring setzt Elizabeth ab und fährt allein mit dem Mietwagen los; er selbst nannte 1986 keine Abfahrtszeit („I left, I'm not certain"). <span class="q">[London 8.6.]</span></td></tr>
+<tr><td class="n">3</td><td class="o">Halt an der Strecke (Laden, Ort unbenannt)</td><td class="z">—</td><td>Kauft „zwei oder drei Dosen Bier", trinkt sie unterwegs — „ich war nervös … untypisch für mich". Gesamtfahrzeit <i>~3½ Std.</i>, „keine Zeit zu essen". <span class="q">[Bonn]</span></td></tr>
+<tr><td class="n">4</td><td class="o">„Loose Chippings", Ankunft</td><td class="z"><i>rechn. ~16:30–17:30</i> (aus #2 + 3½ Std.) · Söring: <b>„schon dunkel"</b> <span class="q">[Bonn]</span></td><td>Mr. Haysom öffnet, drückt ihm einen Drink in die Hand; Mrs. Haysom trinkt Pernod; die Eltern sticheln untereinander. <span class="q">[Bonn]</span> <span class="warn">⚠ Spannung innerhalb der Fassung: die rechnerische Ankunft läge noch bei Tageslicht.</span></td></tr>
+<tr><td class="n">5</td><td class="o">Loose Chippings, Wohn- → Esszimmer</td><td class="z">abends</td><td>Allgemeines Gespräch, dann aufgewärmtes Abendessen; Söring bringt das Beziehungs-Thema auf; der Streit eskaliert — Tötung von Derek und Nancy Haysom. Er schildert 1986 nur „Erinnerungsinseln"; Handverletzung. <span class="q">[Bonn · London 5.–8.6.]</span></td></tr>
+<tr><td class="n">6</td><td class="o">Müllcontainer an der US-501 (1. Anfahrt)</td><td class="z">—</td><td>Will die Kleidung entsorgen; bemerkt Blut an Hose und Hand, Blutung zu stark für die Rückfahrt; zudem Licht im Haus an, Tür offen → Umkehr. Lage der Container: seine eigene Skizze (Loose Chippings → Holcomb Rock Rd → Trents Ferry Rd → US-501). <span class="q">[Bonn · Gardner '90]</span></td></tr>
+<tr><td class="n">7</td><td class="o">Loose Chippings (2. Besuch)</td><td class="z">Abwesenheit <b>„ca. 15 Min."</b> (seine Schätzung)</td><td>Hand im Bad verbunden; Besteck, Glas und Kleidung eingesammelt (Fingerabdrücke), frisches Oberteil; Licht gelöscht, Tür geschlossen. <span class="q">[Bonn · London 8.6.]</span></td></tr>
+<tr><td class="n">8</td><td class="o">Müllcontainer US-501 (2. Anfahrt)</td><td class="z">—</td><td>Entsorgt Messer und Kleidung. Detail-Differenz der Wiedergaben: Bonn — „alles beim zweiten Mal"; Gardner-Wiedergabe — Umziehen schon bei Fahrt 1, entsorgt „außer Socken, Unterwäsche, Pullover"; in Bonn vorgehalten, Söring: „Der amerikanische Beamte muss das missverstanden haben." <span class="q">[Bonn]</span></td></tr>
+<tr><td class="n">9</td><td class="o">Rückfahrt → Georgetown, Straße vor dem Kino</td><td class="z">nachts · <i>~3½ Std.</i> · Treffen <b>„vielleicht eins?"</b> <span class="q">[London 8.6.]</span></td><td>Verabredetes Treffen mit Elizabeth „auf der Straße" nach Ende der „Rocky Horror Picture Show"; sie erschrickt über sein Aussehen. Danach zurück ins Hotel. <span class="q">[Bonn · London 8.6. · Gardner '90]</span></td></tr>
+</tbody>
+</table>
+<p class="owfoot">Parallel-Spur Elizabeth (in dieser Fassung): bleibt in D.C., kauft je zwei Karten für „Witness" und „Rocky Horror Picture Show" und besucht die Vorstellungen. [E. Haysom '90 · London 6.6.]</p>
+</div>
+<p class="owfoot" style="margin:12px 0 14px;">Quellen: <a class="qref" href="#q-london">UK-Verhörprotokolle Juni 1986</a> („London"/„Söring '86") · <a class="qref" href="#q-koenig">Bonner Vernehmung 30.12.1986</a> („Bonn") · <a class="qref" href="#q-transkripte">Prozess-Transkripte 1990</a> („… '90") — amtliche Scans in Reproduktion (🟡), deutsche Zitate = Arbeitsübersetzung. Meilenrechnung (~120/~75 mi, Summe ≈ 669) = Darstellung der Anklage 1990; die Verteidigung erklärte dieselbe Strecke mit Fassung 2. Karte nicht maßstabsgetreu.</p>
 <h2 style="font-size:18px;font-weight:500;margin:28px 0 4px;">Beobachtungen und Schlussfolgerungen <span class="tag tag-static">Nachschlag · nicht editierbar</span></h2>
 <p style="font-size:12px;color:var(--text-muted);margin:0 0 14px;">Einordnungen auf Basis der im Reiter <a class="qref" href="#quellen">„Dokumente &amp; Quellen“</a> verlinkten Fundstellen – keine neuen Tatsachen. Söring ist rechtskräftig verurteilt; das Verfahren 2026 läuft.</p>
 <div style="background:var(--surface-2);border:0.5px solid var(--border);border-radius:12px;padding:1rem 1.25rem;">
@@ -424,7 +562,7 @@ var T=[
 {d:'Herbst 1984',k:'gray',t:'Begegnung an der University of Virginia',x:'Jens Söring (18) und Elizabeth Haysom (20), beide Echols-Stipendiaten, werden ein Paar.',p:['jens','elizabeth']},
 {d:'Dez. 1984 / Jan. 1985',k:'gray',t:'Der „Christmas Letter"',x:'Söring schreibt Elizabeth Haysom über die Weihnachtsferien hinweg einen 39-seitigen, maschinengeschriebenen Brief; einzelne Abschnitte sind mit Datum und Uhrzeit versehen. Der Brief wurde im Prozess als Beweismittel eingeführt, und die Ermittler hielten Söring in der Vernehmung vom 8. Juni 1986 Auszüge daraus vor. Er ist im frei zugänglichen Haysom-Dokumentenarchiv einsehbar.',p:['jens','elizabeth']},
 {d:'30. März 1985',k:'gray',t:'Die Haysom-Morde',x:'Derek und Nancy Haysom werden in ihrem Haus in Boonsboro erstochen. Söring und Haysom verbringen das Wochenende mit einem Mietwagen in Washington, D.C. – was dort geschah, ist bis heute der Kern des Streits.',p:['derek','nancy','jens','elizabeth']},
-{d:'April 1985',k:'gray',t:'Entdeckung der Leichen',x:'Freunde finden das Ehepaar Tage später. Am Tatort: Blutspuren der Typen 0, A, B und AB, ein blutiger Sockenabdruck, keine Einbruchsspuren.',p:['gardner','reid']},
+{d:'3. Apr. 1985',k:'gray',t:'Entdeckung der Leichen',x:'Freunde finden das Ehepaar Tage später. Am Tatort: Blutspuren der Typen 0, A, B und AB, ein blutiger Sockenabdruck, keine Einbruchsspuren.',p:['gardner','reid']},
 {d:'Okt. 1985',k:'gray',t:'Flucht nach Europa',x:'Als die Ermittler das Paar erneut befragen wollen, fliehen beide nach England und leben dort unter falschen Identitäten.',p:['jens','elizabeth']},
 {d:'30. Apr. 1986',k:'gray',t:'Festnahme in London',x:'Verhaftung wegen Scheckbetrugs. In den Zimmern finden sich Tagebücher und Briefe, die die Ermittler auf die Morde stoßen lassen.',p:['jens','elizabeth','wright']},
 {d:'Juni 1986',k:'coral',t:'Sörings Geständnisse',x:'In tagelangen Londoner Verhören gesteht Söring die Morde mehrfach – die UK-Vernehmungen (Beever/Wright) liefen auf Band, das zentrale Detail-Geständnis vom 8. Juni gab er allein US-Ermittler Gardner, auf eigenen Wunsch ohne Aufzeichnung. Später widerruft er: Er habe Elizabeth schützen wollen und an Diplomatenimmunität geglaubt.',p:['jens','wright','gardner']},
@@ -466,7 +604,7 @@ li.appendChild(dd);li.appendChild(bd);ul.appendChild(li);});}
    aus der Quellen-Zeile gelesen — kein zweiter Titel-Bestand, kein Drift. */
 var tlDocs={
 'Dez. 1984 / Jan. 1985':['q-christmas'],
-'April 1985':['q-autopsie'],
+'3. Apr. 1985':['q-autopsie'],
 'Juni 1986':['q-london','q-protokoll-0806'],
 '11. Dez. 1986':['q-hamilton','q-bullard'],
 '30. Dez. 1986':['q-koenig'],
