@@ -105,7 +105,7 @@ table.hp{width:100%;border-collapse:collapse;font-size:11.5px;}
 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;">
 <div>
 <h1>Fall Jens Söring – Ermittlerboard</h1>
-<p class="sub">Haysom-Morde, Bedford County (Virginia), 30. März 1985 · Stand: Juli 2026 · <span style="opacity:.6">v0.1.16</span></p>
+<p class="sub">Haysom-Morde, Bedford County (Virginia), 30. März 1985 · Stand: Aug. 2026 · <span style="opacity:.6">v0.1.17</span></p>
 </div>
 <div style="display:flex;gap:8px;align-items:center;">
 <button id="themebtn" aria-label="Farbschema umschalten">Dunkles Design</button>
@@ -321,6 +321,7 @@ table.hp{width:100%;border-collapse:collapse;font-size:11.5px;}
 <tr id="q-reid"><td>Chuck-Reid-Report (deutsch)<span class="desc">Aufarbeitung des ursprünglichen Ermittlers Chuck Reid (Gallip Verlag); Gratis-PDF über Sörings Website.</span></td><td class="amp">🟡</td><td><a href="https://www.jens-soering.de/_files/ugd/045fac_c47dbf55de7b460f81cb3d927fa2f803.pdf" target="_blank" rel="noopener">jens-soering.de (PDF)</a></td></tr>
 <tr id="q-benecken"><td>Benecken-Report<span class="desc">Beweismittel-Analyse des Strafverteidigers Burkhard Benecken.</span></td><td class="amp">🟡</td><td><a href="https://www.jens-soering.de/_files/ugd/045fac_237f52db6a5845929e176ca43313cfeb.pdf" target="_blank" rel="noopener">jens-soering.de (PDF)</a></td></tr>
 <tr id="q-hudson"><td>Hudson-Brief an Gouverneur McAuliffe (12.09.2017)<span class="desc">Ermittlungsbericht des Ex-Detective Richard Hudson (pro Söring) als Brief; nicht zu verwechseln mit Sheriff Hardings 19-Seiten-Bericht, der nicht öffentlich ist.</span></td><td class="amp">🟡</td><td><a href="https://www.scribd.com/document/360093336/Richard-Hudson-s-Letter-Dated-September-12-2017" target="_blank" rel="noopener">engl. Scan (Scribd)</a></td></tr>
+<tr id="q-lapekas"><td>Lapekas-Brief an Gouverneur Northam (02.04.2018)<span class="desc">Vierseitiger Brief des Ex-FBI-Agenten Stan Lapekas (FBI 1971–1998) mit seiner Fall-Bewertung und der Beschreibung seiner FOIA-Funde — nach seiner Darstellung ein FBI-Anforderungs-Memo (07.04.1985) und ein Fernschreiben (08.05.1985); das Profil selbst enthielt die Akte nicht. Auf Scribd unter dem irreführenden, automatisch erzeugten Titel „Revisiting the Haysom Murder Case" gelistet (Upload durch den Sender WSET am 09.04.2018).</span></td><td class="amp">🟡</td><td><a href="https://www.scribd.com/document/375932273/Letter-From-S-Lapekas-to-Governor-Northam" target="_blank" rel="noopener">Scan (Scribd)</a> · <a href="http://j.b5z.net/i/u/2108258/f/Pardon/Letter_from_S._Lapekas_to_Governor_Northam.pdf" target="_blank" rel="noopener">PDF (b5z)</a></td></tr>
 <tr id="q-petition-scans"><td>Dokument-Scans zur Petition 2026 (via WSET/ABC13)<span class="desc">Von der Redaktion mit der Recherche vom März 2026 veröffentlichte Beilagen-Scans, u.&nbsp;a. die McClintock-Analyse (DNA Diagnostics); Einbettung und Zuordnung im verlinkten Artikel (s. Presse-Auswahl).</span></td><td class="amp">🟡</td><td><a href="https://wset.com/resources/pdf/979d410c-3b8a-48d3-98f8-784efaef03de-DNADiagnostics.pdf" target="_blank" rel="noopener">McClintock-Analyse (PDF)</a> · <a href="https://wset.com/resources/pdf/8a1dcb6d-6834-4cfc-abb0-8adf6911845f-WSETSHARPStudio_20260312_162825.pdf" target="_blank" rel="noopener">Beilage 12.03. (PDF)</a> · <a href="https://wset.com/resources/pdf/a86334cf-b167-44bf-bdff-3eba5f0927d9-WSETSHARPStudio_20260314_205603.pdf" target="_blank" rel="noopener">Beilage 14.03. (PDF)</a></td></tr>
 </table>
 </div>
@@ -420,6 +421,7 @@ var N=[
 {id:'innocence',l:['Inst. f. Actual','Innocence'],x:545,y:1380,r:12,c:'teal',sq:1,role:'University of Richmond School of Law',d:'Unterstützte 2017 die Begnadigungspetition, gestützt auf die DNA-Befunde von 2009, die Söring an den getesteten Tatortspuren ausschlossen.'},
 {id:'hermanns',l:['Petra','Hermanns'],x:160,y:1450,r:12,c:'teal',role:'Sprecherin des Freundeskreises',d:'Sprach für den deutschen Unterstützerkreis, der Sörings Freilassung begleitete und seine Rückkehr organisierte – Wohnung, Handy und Kleidung standen 2019 bereit.'},
 {id:'kreis',l:['Freundeskreis','Jens Söring'],x:300,y:1450,r:12,c:'teal',sq:1,role:'Deutsches Unterstützernetzwerk',d:'Von Söring 2017 selbst auf rund 70 Personen beziffert. Begleitete Freilassung, Rückkehr und Medienauftritte. Kritiker wie der Podcast "Das System Söring" sehen darin eine PR-Maschine; Söring bestreitet inzwischen, dass es einen organisierten Freundeskreis gab.'},
+{id:'lapekas',l:['Stan','Lapekas'],x:440,y:1450,r:12,c:'teal',role:'FBI-Agent a. D. · FOIA-Anfrage 2018',d:'Special Agent des FBI 1971–1998, danach Privatermittler; wirkte 2012 an der Exoneration des zu Unrecht verurteilten Michael Hash mit. 2017 bat ihn das Söring-Team um eine Aktenprüfung. Seine FOIA-Anfrage machte 2018 die FBI-Befassung von 1985 aktenkundig — laut seinem <a class="qref" href="#q-lapekas">Brief an Gouverneur Northam</a> ein Anforderungs-Memo und ein Fernschreiben; das Profil selbst enthielt die Akte nicht. Trat am 8. April 2018 mit Harding, Reid und Hudson auf der Pressekonferenz auf; den Sockenabdruck-Vergleich des Prozesses nannte er gegenüber WVTF einen „Zaubertrick". 2025 interviewte Söring ihn auf seinem YouTube-Kanal.'},
 {id:'northam',l:['Gov. Ralph','Northam'],x:360,y:1610,r:12,c:'gray',role:'Gouverneur Virginias 2018–2022',d:'Akzeptierte im November 2019 die Empfehlung des Parole Board: Bewährung und Abschiebung für Söring (Deutschland) und Haysom (Kanada) – ausdrücklich keine Begnadigung.'},
 {id:'eharding',l:['Elliott','Harding'],x:110,y:1665,r:12,c:'teal',role:'Aktueller Anwalt Sörings (Charlottesville)',d:'Reichte im Februar 2026 die <a class="qref" href="#q-writ">Petition auf einen "writ of actual innocence"</a> ein: neue DNA-Vergleiche (u.a. mit Sheena Haysoms Probe) deuteten auf zwei unbekannte Männer; Geständnis, Sockenabdruck und Elizabeths Aussage seien wertlos. Neffe von Chip Harding.'},
 {id:'court',l:['Court of','Appeals VA'],x:235,y:1665,r:12,c:'gray',sq:1,role:'Berufungsgericht Virginias',d:'Entscheidet über die Petition von 2026 – Urteil wird binnen Monaten erwartet, möglich ist auch eine Beweisanhörung in Bedford County. Solche Writs werden nur selten gewährt (2 von 84 in drei Jahren).'},
@@ -499,6 +501,9 @@ var E=[['jens','elizabeth','Paar 1984/85 – beschuldigen einander'],['jens','de
 ['mcclintock','chip','Experte der Kampagne 2016/17'],
 ['podini','rosenfield','Gutachten-Brief Mai 2018'],
 ['podini','jens','drittes entlastendes DNA-Gutachten 2018'],
+['lapekas','chip','Pressekonferenz 8. April 2018'],
+['lapekas','sulzbach','FOIA-Anfrage zur FBI-Befassung'],
+['lapekas','jens','Interview auf Sörings Kanal 2025'],
 ['mcclintock','hartsen','gemeinsame Auswertung Dez. 2025'],
 ['mcclintock','krane','wissenschaftlicher Widerspruch'],
 ['hartsen','sheena','analysierte ihre DNA-Probe 2025'],
@@ -577,6 +582,7 @@ var T=[
 {d:'Jan. 2010',k:'gray',t:'Überstellung genehmigt – und gestoppt',x:'Gouverneur Tim Kaine billigt kurz vor Amtsende Sörings Überstellung in den deutschen Vollzug; sein Nachfolger Bob McDonnell widerruft sie umgehend. Söring bleibt in Virginia inhaftiert.',p:['kaine','mcdonnell','jens']},
 {d:'2016',k:'teal',t:'„Das Versprechen“ und Pardon-Gesuch',x:'Die Doku von Vetter/Steinberger macht den Fall neu auf; Anwalt Rosenfield beantragt Begnadigung. Elizabeth nennt in einem Interview Missbrauch durch die Mutter als Motiv – und Söring als Täter.',p:['vetter','steinberger','rosenfield','elizabeth','reid']},
 {d:'2017',k:'teal',t:'Ermittler und Diplomaten machen Druck',x:'Sheriff Chip Harding legt seinen Unschulds-Bericht vor, Experten und das Institute for Actual Innocence stützen die Petition, Wulff und Botschafter Wittig erscheinen zur Anhörung; DNA-Fachleute wie Schanfield und McClintock bestreiten die Blutbeweise.',p:['chip','hudson','marshall','innocence','wulff','wittig','schanfield','mcclintock']},
+{d:'8. Apr. 2018',k:'teal',t:'Pressekonferenz zu den FOIA-Funden',x:'Vier Ermittler a. D. — Chip Harding, Chuck Reid, Richard Hudson und Ex-FBI-Agent Stan Lapekas — fordern eine Begnadigung. Die FOIA-Anfrage von Lapekas hatte zuvor Dokumente über die FBI-Befassung von 1985 zutage gefördert; das Profil selbst enthielt die Akte nicht. Die Gegenseite verweist darauf, dass die in den Dokumenten früh verdächtigte Person eine andere, vollständig entlastete Frau war.',p:['chip','reid','hudson','lapekas','sulzbach','gardner','northam']},
 {d:'Nov. 2019',k:'gray',t:'Bewährung und Abschiebung',x:'Das Parole Board entlässt beide – ausdrücklich keine Begnadigung. Söring landet im Dezember in Frankfurt, Haysom geht nach Kanada.',p:['northam','jens','elizabeth','kreis','hermanns']},
 {d:'ab 2020',k:'gray',t:'Medienstar nach der Haft',x:'Söring wird in deutschen Talkshows (u.a. Markus Lanz ab Mai 2020) und auf YouTube (Leeroy Matata 2022) zum gefragten Gast. Kritiker sehen eine unkritische Bühne; ARD/NDR und Übermedien widmen der Medienrolle eigene Beiträge.',p:['lanz','leeroy','jung']},
 {d:'Feb. 2022',k:'gray',t:'„Galileo"-Beitrag und Rüge',x:'ProSieben erklärt Söring in „Galileo" für unschuldig und zeigt eine fiktive Nachstellung mit Elizabeth als Täterin; die Medienaufsicht BLM beanstandet den Beitrag, ProSieben löscht ihn.',p:['galileo','jens','elizabeth']},
@@ -614,6 +620,7 @@ var tlDocs={
 '2009':['q-dfs2009'],
 '2016':['q-kfl-doku'],
 '2017':['q-hudson','q-harding'],
+'8. Apr. 2018':['q-lapekas','q-fbi'],
 'Nov. 2019':['q-vpb'],
 '2022':['q-system-podcast'],
 'Herbst 2023':['q-netflix-doku'],
